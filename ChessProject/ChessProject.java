@@ -114,6 +114,7 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 	/*
 		This method checks if there is a piece present on a particular square.
 	*/
+
 	private Boolean piecePresent(int x, int y){
 		Component c = chessBoard.findComponentAt(x, y);
 		if(c instanceof JPanel){
@@ -145,6 +146,7 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 		This method is called when we press the Mouse. So we need to find out what piece we have 
 		selected. We may also not have selected a piece!
 	*/
+
     public void mousePressed(MouseEvent e){
         chessPiece = null;
         Component c =  chessBoard.findComponentAt(e.getX(), e.getY());
@@ -176,12 +178,20 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
     public void mouseReleased(MouseEvent e) {
         if(chessPiece == null) return;
  
+		
         chessPiece.setVisible(false);
 		Boolean success =false;
         Component c =  chessBoard.findComponentAt(e.getX(), e.getY());
 		String tmp = chessPiece.getIcon().toString();
 		String pieceName = tmp.substring(0, (tmp.length()-4));
 		Boolean validMove = false;
+
+		/*====  Outputs the co-ordination of an object  Penuel =======*/
+		int landingX = (e.getX()/75);
+		int landingY = (e.getY()/75);
+		int xMovement = Math.abs((e.getX()/75)-startX);
+		int yMovement = Math.abs((e.getY()/75)-startY);
+		/*===============*/
 
 		/*
 			The only piece that has been enabled to move is a White Pawn...but we should really have this is a separate
@@ -194,6 +204,7 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 			If a Pawn makes it to the top of the other side, the Pawn can turn into any other piece, for 
 			demonstration purposes the Pawn here turns into a Queen.
 		*/
+
 		if(pieceName.equals("WhitePawn")){
 			if(startY == 1)
 			{
@@ -303,6 +314,16 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 	    		chessPiece.setVisible(true);									
 			}
 		}
+
+		  /*== My Code  Penuel ===*/
+		  System.out.println("--------------");
+		  System.out.println("The piece that is being moved is : " + pieceName);
+		  System.out.println("The starting coordinates are : " + " (" + startX + "," + startY+ ")") ;
+		  System.out.println("The xMovement is :" + xMovement);
+		  System.out.println("The yMovement is " + yMovement);
+		  System.out.println("The landing coordinates are : " + "(" + landingX + "," + landingY + ")");
+  
+		  /* ================================*/
     }
  
     public void mouseClicked(MouseEvent e) {
@@ -320,14 +341,15 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 	/*
 		Main method that gets the ball moving.
 	*/
+
     public static void main(String[] args) {
         JFrame frame = new ChessProject();
         frame.setDefaultCloseOperation(DISPOSE_ON_CLOSE );
         frame.pack();
         frame.setResizable(true);
-        frame.setLocationRelativeTo( null );
+        frame.setLocationRelativeTo(null);
         frame.setVisible(true);
-     }
+    }
 }
 
 
