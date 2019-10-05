@@ -116,7 +116,7 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 	*/
 
 	// #Penuel - Methods :  This will print out the methods that has been called
-	private void toPrint(string str){
+	private void toPrint(String str){
 		System.out.println("Activated : " + str);
 	}
 
@@ -213,6 +213,8 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 		if(pieceName.equals("WhitePawn")){
 			if(startY == 1)
 			{
+				toPrint("a-meth");
+
 				if((startX == (e.getX()/75))&&((((e.getY()/75)-startY)==1)||((e.getY()/75)-startY)==2))
 				{
 					if((((e.getY()/75)-startY)==2)){
@@ -238,6 +240,8 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 				}
 			}
 			else{
+				toPrint("b-meth");
+
 				int newY = e.getY()/75;
 				int newX = e.getX()/75;				
 				if((startX-1 >=0)||(startX +1 <=7))
@@ -276,7 +280,8 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 				}				
 			}			
 		}
-		if(!validMove){		
+		if(!validMove){
+			toPrint("c-meth");		
 			int location=0;
 			if(startY ==0){
 				location = startX;
@@ -291,6 +296,7 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 		}
 		else{
 			if(success){
+				toPrint("d-meth");
 				int location = 56 + (e.getX()/75);
 				if (c instanceof JLabel){
 	            	Container parent = c.getParent();
@@ -307,6 +313,7 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 				}
 			}
 			else{
+				toPrint("e-meth");
 				if (c instanceof JLabel){
 	            	Container parent = c.getParent();
 	            	parent.remove(0);
