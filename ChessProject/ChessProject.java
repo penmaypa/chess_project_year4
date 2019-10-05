@@ -115,6 +115,11 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 		This method checks if there is a piece present on a particular square.
 	*/
 
+	// #Penuel - Methods :  This will print out the methods that has been called
+	private void toPrint(string str){
+		System.out.println("Activated : " + str);
+	}
+
 	private Boolean piecePresent(int x, int y){
 		Component c = chessBoard.findComponentAt(x, y);
 		if(c instanceof JPanel){
