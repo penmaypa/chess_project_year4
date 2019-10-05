@@ -23,7 +23,8 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 	
  
     public ChessProject(){
-        Dimension boardSize = new Dimension(600, 600);
+		Dimension boardSize = new Dimension(600, 600);
+	
  
         //  Use a Layered Pane for this application
         layeredPane = new JLayeredPane();
@@ -37,7 +38,8 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
         layeredPane.add(chessBoard, JLayeredPane.DEFAULT_LAYER);
         chessBoard.setLayout( new GridLayout(8, 8) );
         chessBoard.setPreferredSize( boardSize );
-        chessBoard.setBounds(0, 0, boardSize.width, boardSize.height);
+		chessBoard.setBounds(0, 0, boardSize.width, boardSize.height);
+		
  
         for (int i = 0; i < 64; i++) {
             JPanel square = new JPanel( new BorderLayout() );
@@ -117,7 +119,7 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 
 	// #Penuel - Methods :  This will print out the methods that has been called
 	private void toPrint(String str){
-		System.out.println("Activated : " + str);
+		System.out.println( " Activated : " + str);
 	}
 
 	private Boolean piecePresent(int x, int y){
@@ -249,7 +251,14 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 					if((piecePresent(e.getX(), (e.getY())))&&((((newX == (startX+1)&&(startX+1<=7)))||((newX == (startX-1))&&(startX-1 >=0)))))
 					{
 						if(checkWhiteOponent(e.getX(), e.getY())){
-							validMove = true;
+
+							//Penuel
+							if(yMovement >=2){
+								validMove = false;
+							}else{
+								validMove = true; //from : 
+							}
+
 							if(startY == 6){
 								success = true;
 							}						
@@ -314,6 +323,7 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 			}
 			else{
 				toPrint("e-meth");
+
 				if (c instanceof JLabel){
 	            	Container parent = c.getParent();
 	            	parent.remove(0);
@@ -334,7 +344,7 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 		  System.out.println("The xMovement is :" + xMovement);
 		  System.out.println("The yMovement is " + yMovement);
 		  System.out.println("The landing coordinates are : " + "(" + landingX + "," + landingY + ")");
-  
+
 		  /* ================================*/
     }
  
