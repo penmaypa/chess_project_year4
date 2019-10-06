@@ -1,3 +1,4 @@
+// original
 import java.awt.*;
 import java.awt.event.*;
 import java.util.*;
@@ -116,7 +117,7 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 	*/
 
 	// #Penuel - Methods :  This will print out the methods that has been called
-	private void toPrint(string str){
+	private void toPrint(String str){
 		System.out.println("Activated : " + str);
 	}
 
