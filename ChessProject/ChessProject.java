@@ -29,6 +29,8 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 	JPanel panels;
 	JLabel pieces;
 
+	int prevPositionY ; //Penuel
+
 	//==== Penuel Code=====
 	int printDisplayCount = 0 ;
 	
@@ -226,7 +228,17 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 		int landingY = (e.getY()/75);
 		int xMovement = Math.abs((e.getX()/75)-startX);
 		int yMovement = Math.abs((e.getY()/75)-startY);
+		boolean isForwardMove ;
+
+		//===== isReverse Method====== -- Penuel
+		if(e.getY() < initialY){
+			isForwardMove = true ;
+		}else{
+			isForwardMove = false;
+		}
 		/*===============*/
+
+	
 
 		/*
 			The only piece that has been enabled to move is a White Pawn...but we should really have this is a separate
@@ -241,10 +253,10 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 		*/
 
 		if(pieceName.equals("BlackPawn")){  // #solution_2
-			if(startY == 6)
+			if(startY == 6 && isForwardMove == true)
 			{
 				// If  the  starting position of the x column is the same as the finishing column and the new y coordinate has moved either  one  or  two  squares,  we may  have  a  valid  move
-				if((startX == (e.getX()/75))&&((((e.getY()/75)-startY)==1)||((e.getY()/75)-startY)==2))
+				if(xMovement == 0 && (yMovement == 1 || yMovement == 2) )		// Old:	if((startX == (e.getX()/75))&&((((e.getY()/75)-startY)==1)||((e.getY()/75)-startY)==2))
 				{
 					if((((e.getY()/75)-startY)==2)){
 						if((!piecePresent(e.getX(), (e.getY())))&&(!piecePresent(e.getX(), (e.getY()+75)))){
@@ -272,7 +284,7 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 			else{ 
 				int newY = e.getY()/75;
 				int newX = e.getX()/75;				
-				 if (xMovement==0 && yMovement == 1)	// FROM :  if((startX-1 >=0)||(startX +1 <=7))
+				 if (xMovement==0 && yMovement == 1 && isForwardMove == true)	// FROM :  if((startX-1 >=0)||(startX +1 <=7))
 				{
 					if((piecePresent(e.getX(), (e.getY())))&&((((newX == (startX+1)&&(startX+1<=7)))||((newX == (startX-1))&&(startX-1 >=0)))))
 					{
@@ -439,16 +451,18 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 			}
 		}
 
+			prevPositionY = e.getY();
+
 		  /*== My Code  Penuel ===*/
-		  printDisplayCount ++ ;
-		  System.out.println("\n \n -------" + "Print #"+ printDisplayCount + "-------------------- \n");
-		  System.out.println("The piece that is being moved is : " + pieceName);
-		  System.out.println("The starting coordinates are : " + " (" + startX + "," + startY+ ")") ;
-		  System.out.println("The xMovement is :" + xMovement);
-		  System.out.println("The yMovement is " + yMovement);
-		  System.out.println("The landing coordinates are : " + "(" + landingX + "," + landingY + ")");
-		  varWatch();
-		  /* ================================*/
+			printDisplayCount ++ ;
+			System.out.println("\n \n -------" + "Print #"+ printDisplayCount + "-------------------- \n");
+			System.out.println("The piece that is being moved is : " + pieceName);
+			System.out.println("The starting coordinates are : " + " (" + startX + "," + startY+ ")") ;
+			System.out.println("The xMovement is :" + xMovement);
+			System.out.println("The yMovement is " + yMovement);
+			System.out.println("The landing coordinates are : " + "(" + landingX + "," + landingY + ")");
+			varWatch();
+			/* ================================*/
 
 		
 	}
