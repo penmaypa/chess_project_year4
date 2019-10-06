@@ -28,6 +28,9 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 	int initialY;
 	JPanel panels;
 	JLabel pieces;
+
+	//==== Penuel Code=====
+	int printDisplayCount = 0 ;
 	
  
     public ChessProject(){
@@ -278,7 +281,7 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 								validMove = true;
 							}
 							else{
-								validMove = false;
+								validMove = true;
 							}				
 						}
 						else{
@@ -414,7 +417,8 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 		}
 
 		  /*== My Code  Penuel ===*/
-		  System.out.println("--------------");
+		  printDisplayCount ++ ;
+		  System.out.println("\n \n -------" + "Print #"+ printDisplayCount + "-------------------- \n");
 		  System.out.println("The piece that is being moved is : " + pieceName);
 		  System.out.println("The starting coordinates are : " + " (" + startX + "," + startY+ ")") ;
 		  System.out.println("The xMovement is :" + xMovement);
