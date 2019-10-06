@@ -328,9 +328,18 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 		  System.out.println("The xMovement is :" + xMovement);
 		  System.out.println("The yMovement is " + yMovement);
 		  System.out.println("The landing coordinates are : " + "(" + landingX + "," + landingY + ")");
-  
+		  varWatch();
 		  /* ================================*/
-    }
+
+		
+	}
+	
+	/*=== Variable Printer =========================*/
+	  	public void varWatch(){
+			System.out.println("startX : " + startX);
+			System.out.println("startY : " + startY);
+		}
+	/* ================================*/
  
     public void mouseClicked(MouseEvent e) {
 	

@@ -1,0 +1,6 @@
+Tagging :
+
+    Solution 1
+        > #solution_1
+            - Methods for solution 1, which is to fix the pawn movement.
+            - Refer to Hint 2 in the worksheet
