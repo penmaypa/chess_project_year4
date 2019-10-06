@@ -8,6 +8,13 @@ import javax.swing.*;
 	This class can be used as a starting point for creating your Chess game project. The only piece that 
 	has been coded is a white pawn...a lot done, more to do!
 */
+
+/*
+	Commit Comments:
+		--------------------
+			Initiating #solution_2 - refering to black pawn movement
+		---------------------
+*/
  
 public class ChessProject extends JFrame implements MouseListener, MouseMotionListener {
     JLayeredPane layeredPane;
@@ -284,6 +291,8 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 				}				
 			}			
 		}
+		//=== Method End : WhitePawn
+		
 		if(!validMove){		
 			int location=0;
 			if(startY ==0){
