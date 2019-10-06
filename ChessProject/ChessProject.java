@@ -157,6 +157,25 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 		}		
 		return oponent;
 	}	
+
+	// ==========  Penuel code ========================
+	// possible #solution_2
+
+	private Boolean checkBlackOponent(int newX, int newY){
+		Boolean oponent;
+		Component c1 = chessBoard.findComponentAt(newX, newY);
+		JLabel awaitingPiece = (JLabel)c1;
+		String tmp1 = awaitingPiece.getIcon().toString();			
+		if(((tmp1.contains("White")))){
+			oponent = true;
+		}
+		else{
+			oponent = false; 
+		}		
+		return oponent;
+	}
+
+	//======================
  
 	/*
 		This method is called when we press the Mouse. So we need to find out what piece we have 
@@ -222,8 +241,9 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 		*/
 
 		if(pieceName.equals("BlackPawn")){  // #solution_2
-			if(startY == 1)
+			if(startY == 6)
 			{
+				// If  the  starting position of the x column is the same as the finishing column and the new y coordinate has moved either  one  or  two  squares,  we may  have  a  valid  move
 				if((startX == (e.getX()/75))&&((((e.getY()/75)-startY)==1)||((e.getY()/75)-startY)==2))
 				{
 					if((((e.getY()/75)-startY)==2)){
@@ -248,14 +268,16 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 					validMove = false;					
 				}
 			}
-			else{
+			// If it moves more 2 steps or move
+			else{ 
 				int newY = e.getY()/75;
 				int newX = e.getX()/75;				
-				if((startX-1 >=0)||(startX +1 <=7))
+				 if (xMovement==0 && yMovement == 1)	// FROM :  if((startX-1 >=0)||(startX +1 <=7))
 				{
 					if((piecePresent(e.getX(), (e.getY())))&&((((newX == (startX+1)&&(startX+1<=7)))||((newX == (startX-1))&&(startX-1 >=0)))))
 					{
-						if(checkWhiteOponent(e.getX(), e.getY())){
+						// #!!!
+						if(checkBlackOponent(e.getX(), e.getY())){
 							
 							//Penuel #solution_1
 							if(yMovement >=2){
@@ -297,9 +319,10 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 		//=== Method End : BlackPawn
 
 
-		if(pieceName.equals("WhitePawn")){
+		else if(pieceName.equals("WhitePawn")){
 			if(startY == 1)
 			{
+				// If  the  starting position of the x column is the same as the finishing column and the new y coordinate has moved either  one  or  two  squares,  we may  have  a  valid  move
 				if((startX == (e.getX()/75))&&((((e.getY()/75)-startY)==1)||((e.getY()/75)-startY)==2))
 				{
 					if((((e.getY()/75)-startY)==2)){
