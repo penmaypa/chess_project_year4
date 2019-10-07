@@ -324,7 +324,15 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 					}
 				}
 				else{
-					validMove = false;
+					if(checkBlackOponent(e.getX(), e.getY())){
+							
+						//Penuel #solution_1
+						if(yMovement >=2){
+							validMove = false;
+						}else{
+							validMove = true; //from : 
+						}	
+					}
 				}				
 			}			
 		}
