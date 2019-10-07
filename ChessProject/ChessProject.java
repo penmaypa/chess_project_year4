@@ -252,6 +252,8 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 			demonstration purposes the Pawn here turns into a Queen.
 		*/
 
+		// #bp
+
 		if(pieceName.equals("BlackPawn")){  // #solution_2
 			if(startY == 6 && isForwardMove == true)
 			{
@@ -332,7 +334,11 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 								validMove = false;
 							}else{
 								validMove = true; //from : 
-							}	
+							}
+							
+							if(startY == 1){
+								success = true ;
+							}
 						}
 
 					}
@@ -345,7 +351,7 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 		}
 		//=== Method End : BlackPawn
 
-
+// #bp
 		else if(pieceName.equals("WhitePawn")){
 			if(startY == 1)
 			{
@@ -437,6 +443,7 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 		}
 		else{
 			if(success){
+				// It should get here 
 				int location = 56 + (e.getX()/75);
 				if (c instanceof JLabel){
 	            	Container parent = c.getParent();
