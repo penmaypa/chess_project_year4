@@ -337,52 +337,24 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 					}
 				}
 				else{
-				// ========================
-					if(checkBlackOponent(e.getX(), e.getY())){
-								
-						//Penuel #solution_1
-						if(yMovement >=2){
-							validMove = false;
-						}else{
-							validMove = true; //from : 
-							success = true;
+					if(isForwardMove == true){
+						if( piecePresent(e.getX(), (e.getY())) && checkBlackOponent(e.getX(), e.getY())){
+							
+							//Penuel #solution_1
+							if(yMovement >=2){
+								validMove = false;
+							}else{
+								validMove = true; //from : 
+							}	
 						}
 
 					}
-				//============================
-					// from: validMove = false;
-				}				
-			}
-			
-			
-			if(success){
-				int location = 56 + (e.getX()/75);
-				if (c instanceof JLabel){
-	            	Container parent = c.getParent();
-	            	parent.remove(0);
-					pieces = new JLabel( new ImageIcon("BlackQueen.png") );
-					parent = (JPanel)chessBoard.getComponent(location);
-			    	parent.add(pieces);			
+					else{
+						validMove = false;
+					}
 				}
-				else{
-					Container parent = (Container)c;
-	            	pieces = new JLabel( new ImageIcon("BlackQueen.png") );
-					parent = (JPanel)chessBoard.getComponent(location);
-			    	parent.add(pieces);	            	
-				}
-			}
-			else{
-				if (c instanceof JLabel){
-	            	Container parent = c.getParent();
-	            	parent.remove(0);
-	            	parent.add( chessPiece );
-	        	}
-	        	else {
-	            	Container parent = (Container)c;
-	            	parent.add( chessPiece );
-	        	}
-	    		chessPiece.setVisible(true);									
-			}
+						
+			}			
 		}
 		//=== Method End : BlackPawn
 
