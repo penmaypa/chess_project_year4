@@ -463,7 +463,6 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 			System.out.println("The landing coordinates are : " + "(" + landingX + "," + landingY + ")");
 			varWatch();
 			/* ================================*/
-
 		
 	}
 	
