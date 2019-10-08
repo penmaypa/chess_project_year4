@@ -15,3 +15,8 @@ BRANCHES
             ^-------------
                 Task :  The pawn should be able to swap to qwueen as soon as it reaches the top
             --------------
+        
+        > b5_knight
+            ^ -------------
+                Developing the knight move
+            -----------------
