@@ -20,3 +20,8 @@ BRANCHES
             ^ -------------
                 Developing the knight move
             -----------------
+
+        > b6_bishop_move
+            ^-------------
+                Bishops movement
+            --------------
