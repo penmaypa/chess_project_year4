@@ -252,8 +252,47 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 			demonstration purposes the Pawn here turns into a Queen.
 		*/
 
-		// #bp
 
+
+		if(pieceName.contains("Knight")){
+			if(((landingX < 0 ) || (landingX > 7)) || ((landingY < 0) || landingY > 7)){
+				validMove = false;
+			}
+			else{
+				if(((landingX == startX+1) && (landingY == startY+2)) || ((landingX == startX-1) && (landingY == startY+2)) || ((landingX ==
+				startX + 2) && (landingY == startY + 1)) || ((landingX == startX-2) && (landingY == startY + 1 )) || ((landingX == startX + 1) &&
+				(landingY == startY-2)) || ((landingX == startX-1) && (landingY == startY-2)) || ((landingX == startX + 2) && (landingY ==
+				startY-1)) || ((landingX == startX-2) && (landingY == startY-1))){
+					if(piecePresent(e.getX(),(e.getY()))){
+						if(pieceName.contains("White")){
+							if(checkWhiteOponent(e.getX(), e.getY())){
+								validMove = true ;
+							}
+							else{
+								validMove = false;
+							}
+						}
+						else{
+							if(checkBlackOponent(e.getX(), e.getY())){
+								validMove = true ;
+							}
+							else{
+								validMove = false;
+							}
+						}
+					
+					}
+					else{
+						validMove = true;
+					}
+				}
+				else{
+					validMove = false;
+				}
+
+			}
+		}
+	
 		if(pieceName.equals("BlackPawn")){  // #solution_2
 			if(startY == 6 && isForwardMove == true)
 			{
@@ -351,8 +390,7 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 		}
 		//=== Method End : BlackPawn
 
-// #bp
-		else if(pieceName.equals("WhitePawn")){
+		if(pieceName.equals("WhitePawn")){
 			if(startY == 1)
 			{
 				// If  the  starting position of the x column is the same as the finishing column and the new y coordinate has moved either  one  or  two  squares,  we may  have  a  valid  move
