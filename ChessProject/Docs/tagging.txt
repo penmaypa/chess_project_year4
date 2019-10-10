@@ -1,0 +1,24 @@
+Tagging :
+
+Solutions:
+
+    Solution 1
+        > #solution_1
+            - Methods for solution 1, which is to fix the pawn movement.
+            - Refer to Hint 2 in the worksheet
+
+    Solution 2
+        > #solution_2
+            - Black Pawn movement
+
+Issues :
+
+    Issue_1 
+        - The should only have 1 turn at a time.
+
+    #issue_2
+        - the black pawn should be able take an oponent
+
+        
+
+
