@@ -25,3 +25,5 @@ BRANCHES
             ^-------------
                 Bishops movement
             --------------
+        
+        > b8_queen_movement
