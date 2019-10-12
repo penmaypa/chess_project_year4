@@ -27,3 +27,7 @@ BRANCHES
             --------------
         
         > b8_queen_movement
+
+        > b9_king_movement
+
+            > b9-1_derive_from_pawn
