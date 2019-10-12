@@ -722,6 +722,21 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 	//===== END: Queen ============
 
 
+	//==== START: King Method =======
+		if(pieceName.contains("King")){
+
+			if(
+				(xMovement == 0 && yMovement ==1) ||
+				(xMovement == 1 && yMovement ==0)
+				){
+					
+				validMove = true ;
+			}
+		}
+
+	//=== END: King Meothod ============
+
+	//==== Move Validation Function ===========
 		if(!validMove){		
 			int location=0;
 			if(startY ==0){
@@ -790,6 +805,8 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 			System.out.println("The yMovement is " + yMovement);
 			System.out.println("The landing coordinates are : " + "(" + landingX + "," + landingY + ")");
 			varWatch();
+
+			System.out.println("ValidMove : " + validMove);
 			/* ================================*/
 		
 	}
