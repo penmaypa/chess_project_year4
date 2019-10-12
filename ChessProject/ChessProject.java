@@ -454,8 +454,7 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 		//=== Method End : BlackPawn
 
 		if(pieceName.equals("WhitePawn")){
-			if(startY == 1)
-{
+			if(startY == 1){
 				// If  the  starting position of the x column is the same as the finishing column and the new y coordinate has moved either  one  or  two  squares,  we may  have  a  valid  move
 				if((startX == (e.getX()/75))&&((((e.getY()/75)-startY)==1)||((e.getY()/75)-startY)==2)){
 					if((((e.getY()/75)-startY)==2)){
@@ -531,7 +530,7 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 		//=== Method End : WhitePawn
 
 
-		//=== Start Rook Method: ======
+	//=== Start Rook Method: ======
 		if(pieceName.contains("Rook")){
 			Boolean intheway = false;
 
@@ -625,8 +624,104 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 			}
 		}
 
-		//==== END: Rook Method =========
+	//==== END: Rook Method =========
 		
+	//==== START Queen ==========
+		if(pieceName.contains("Queen")){
+			Boolean intheway = false;
+
+			if((( landingX < 0) || (landingX > 7 )) || ((landingY < 0 ) || (landingY > 7))){
+					validMove = false;
+			}
+			else{
+				if(((Math.abs(startX - landingX) !=0) && (Math.abs(startY - landingY) == 0 )) || ((Math.abs(startX - landingX) == 0) && (Math.abs(landingY - startY)!= 0))){				
+					if(Math.abs(startX - landingY) != 0){
+						xMovement = Math.abs(startX - landingX);
+						if(startX - landingX > 0){
+							for(int i=0; i < xMovement; i++){
+								if(piecePresent(initialX - (i*75), e.getY())){
+									intheway = true;
+									break;
+								}
+								else{
+									intheway = false;
+								}
+							}
+						}
+						else{
+							for( int i=0 ; i < xMovement ; i++){
+								if (piecePresent(initialX + (i*75), e.getY())){
+									intheway = true ;
+									break ;
+								}
+								else{
+									intheway = false;
+								}
+							}
+						}
+					}  //============
+					else{
+						yMovement = Math.abs(startY - landingY);
+						if(startY - landingY > 0){
+							for(int i=0 ; i < yMovement ; i++){
+								if(piecePresent(e.getX(), initialY + (i*75))){
+									intheway = true ;
+									break ;
+								}
+								else{
+									intheway = false;
+								}
+							}
+						}
+						else{
+							for(int i=0 ; i < yMovement ; i++){
+								if(piecePresent(e.getX(), initialY+(i*75))){
+									intheway = true;
+									break;
+								}
+								else{
+									intheway = false;
+								}
+							}
+						}
+
+					}
+
+					if(intheway){
+						validMove = false ;
+					}
+					else{
+						if(piecePresent(e.getX(), (e.getY()))){
+							if(pieceName.contains("White")){
+								if(checkWhiteOponent(e.getX(), e.getY())){
+									validMove = true ;
+								}
+								else{
+									validMove = false;
+								}
+							}
+							else{
+								if(checkBlackOponent( e.getX() , e.getY())){
+									validMove = true;
+								}
+								else{
+									validMove = false;
+								}
+							}
+						}
+						else{
+							validMove = true ;
+						}
+					}	
+				}
+				else{
+					validMove = true;
+				}
+			}
+		}
+	//===== END: Queen ============
+
+
 		if(!validMove){		
 			int location=0;
 			if(startY ==0){
