@@ -640,6 +640,8 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 				if(((Math.abs(startX - landingX) !=0) && (Math.abs(startY - landingY) == 0 )) || ((Math.abs(startX - landingX) == 0) && (Math.abs(landingY - startY)!= 0))){				
 					if(Math.abs(startX - landingY) != 0){
 						xMovement = Math.abs(startX - landingX);
+
+						// This is where it skips...
 						if(startX - landingX > 0){
 							for(int i=0; i < xMovement; i++){
 								if(piecePresent(initialX - (i*75), e.getY())){
@@ -663,7 +665,7 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 							}
 						}
 					}  //============
-					else{
+					//else{
 						yMovement = Math.abs(startY - landingY);
 						if(startY - landingY > 0){
 							for(int i=0 ; i < yMovement ; i++){
@@ -688,7 +690,7 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 							}
 						}
 
-					}
+					//}
 
 					if(intheway){
 						validMove = false ;
