@@ -31,3 +31,8 @@ BRANCHES
         > b9_king_movement
 
             > b9-1_derive_from_pawn
+        
+        > issue_b1
+            ^-----------------------
+                Some items are able to jump over other items
+            ---------------------------

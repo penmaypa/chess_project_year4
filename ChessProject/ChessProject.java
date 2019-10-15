@@ -187,6 +187,9 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 	*/
 
     public void mousePressed(MouseEvent e){
+		
+		System.out.println("Log : Program starts...");
+		
         chessPiece = null;
         Component c =  chessBoard.findComponentAt(e.getX(), e.getY());
         if (c instanceof JPanel) 
