@@ -567,13 +567,19 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 							}
 						}
 					}  //============
-					else{
+					//else{
 						yMovement = Math.abs(startY - landingY);
 						if(startY - landingY > 0){
 							for(int i=0 ; i < yMovement ; i++){
 								if(piecePresent(e.getX(), initialY + (i*75))){
-									intheway = true ;
-									break ;
+									
+									if(i == 1){
+										intheway = false;
+										break ;
+									}else{
+										intheway = true ;
+										break ;
+									}
 								}
 								else{
 									intheway = false;
@@ -592,7 +598,7 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 							}
 						}
 
-					}
+					//}
 
 					if(intheway){
 						validMove = false ;
