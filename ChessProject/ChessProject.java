@@ -33,6 +33,12 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 
 	//==== Penuel Code=====
 	int printDisplayCount = 0 ;
+
+	
+	int blackTurn = 0;
+	int whiteTurn = 1;
+	int nextTurn = whiteTurn;
+	boolean enableTurn = true;
 	
  
     public ChessProject(){
@@ -234,6 +240,8 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 		int xMovement = Math.abs((e.getX()/75)-startX);
 		int yMovement = Math.abs((e.getY()/75)-startY);
 		boolean isForwardMove ;
+		String messageTurn = "";
+		boolean enableMessageTurn = false;
 
 		//===== isReverse Method====== -- Penuel
 		if(e.getY() < initialY){
@@ -791,6 +799,30 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 
 	//=== END: King Meothod ============
 
+	//===START:  Turn Management funtion ===========
+		if(enableTurn == true){
+			if(pieceName.contains("White") && validMove == true ){
+				if(nextTurn == whiteTurn){
+					validMove = true ;
+					nextTurn = blackTurn ;
+				}else{
+					validMove = false;
+					enableMessageTurn = true;
+				}
+			}
+			if(pieceName.contains("Black") && validMove == true ){
+				if(nextTurn == blackTurn){
+					validMove = true;
+					nextTurn = whiteTurn ;
+				}else{
+					validMove = false;
+					enableMessageTurn = true ;
+				}
+			}
+		}
+
+	//====END==================
+
 	//==== Move Validation Function ===========
 		if(!validMove){		
 			int location=0;
@@ -862,6 +894,11 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 			varWatch();
 
 			System.out.println("ValidMove : " + validMove);
+
+			if(enableMessageTurn == true){
+				JOptionPane.showMessageDialog(null, "Its the opponent turn");
+			}
+			
 			/* ================================*/
 		
 	}
