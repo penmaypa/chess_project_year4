@@ -1,0 +1,5 @@
+Student Name :  Penuel Maypa
+Student Number :  x16382003
+
+The reposatories are pushed to:
+https://github.com/penmaypa/chess_project_year4.git
