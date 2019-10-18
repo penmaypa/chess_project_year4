@@ -7,7 +7,32 @@ BRANCHES
                 Developing a method for the black pawn to move.
             ------------------
 
+        > iniin
+
         > b3_oneturn
-            ^------------------
-                - The should only have 1 turn at a time. #issue_1
-            ------------------
+
+        > b4_queen_prog
+            ^-------------
+                Task :  The pawn should be able to swap to qwueen as soon as it reaches the top
+            --------------
+        
+        > b5_knight
+            ^ -------------
+                Developing the knight move
+            -----------------
+
+        > b6_bishop_move
+            ^-------------
+                Bishops movement
+            --------------
+        
+        > b8_queen_movement
+
+        > b9_king_movement
+
+            > b9-1_derive_from_pawn
+        
+        > issue_b1
+            ^-----------------------
+                Some items are able to jump over other items
+            ---------------------------
